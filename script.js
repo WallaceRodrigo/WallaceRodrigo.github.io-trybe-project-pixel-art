@@ -89,15 +89,15 @@ function colorPixels(event) {
   event.target.style.backgroundColor = selected;
   pixelBoard.style.backgroundColor = '';
 
-  //function saveDraw() {
-  //  const pixels = document.querySelectorAll('.pixel');
-  //  for (let index = 0; index <= pixels.length; index += 1) {
-  //    const pixelsIndex = pixels[index].style.backgroundColor;
-  //    console.log(pixelsIndex.pixelBoard);
-  //    localStorage.setItem('pixelBoard', JSON.stringify(pixelsIndex.pixelBoard));
-  //  }
-  //}
-  //saveDraw();
+  function saveDraw() {
+    const pixels = document.querySelectorAll('.pixel');
+    const savedPixels = [];
+    for (let index = 0; index < pixels.length; index += 1) {
+      savedPixels.push(pixels[index].style.backgroundColor);
+      localStorage.setItem('pixelBoard', JSON.stringify(savedPixels));
+    }
+  }
+  saveDraw();
 }
 pixelBoard.addEventListener('click', colorPixels);
 
@@ -105,20 +105,28 @@ createBnt('Limpar', 'clear-board');
 const clearButton = document.getElementById('clear-board');
 function clearBnt() {
   const pixels = document.querySelectorAll('.pixel');
+  const savedPixels = [];
   for (let index = 0; index < pixels.length; index += 1) {
     pixels[index].style.backgroundColor = 'white';
+    savedPixels.push(pixels[index].style.backgroundColor);
+    localStorage.setItem('pixelBoard', JSON.stringify(savedPixels));
   }
 }
 clearButton.addEventListener('click', clearBnt);
 
-//function restoreDraw() {
-//  const pixels = document.querySelectorAll('.pixel');
-//  const savedDraw = JSON.parse(localStorage.getItem('pixelBoard'));
-//  for (let index = 0; index < savedDraw.length; index += 1) {
-//    pixels[index].style.backgroundColor = savedDraw[index].style.backgroundColor;
-//  }
-//}
-//restoreDraw();
+function restoreDraw() {
+  let pixels = document.querySelectorAll('.pixel');
+  const savedDraw = JSON.parse(localStorage.getItem('pixelBoard'));
+
+  if (savedDraw === null) {
+    pixels = [];
+  }
+
+  for (let index = 0; index < pixels.length; index += 1) {
+    pixels[index].style.backgroundColor = savedDraw[index];
+  }
+}
+restoreDraw();
 
 // REFERENCIAS//
 // GERAR COR ALEATORIA -> https://www.horadecodar.com.br/2022/01/16/gerar-cor-aleatoria-com-javascript//
