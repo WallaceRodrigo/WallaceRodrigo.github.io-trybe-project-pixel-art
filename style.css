@@ -1,0 +1,82 @@
+* {
+  text-align: center;
+  font-family: monospace;
+}
+
+body {
+  background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9bc27292880429.5e569ff84e4d0.gif);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+h1 {
+  color: white;
+}
+
+ul {
+  display: inline-block;
+  background-color: rgb(26, 10, 138);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 100px;
+  border: 2px solid rgb(6, 174, 196);
+  box-shadow: 2px 2px 5px rgb(6, 174, 196);
+}
+
+#color-palette li {
+  list-style-type: none;
+  display: inline-block;
+  border: 1px  solid black;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  margin-right: 40px;
+}
+
+.color:nth-child( 0n+1 ) {
+  background-color: black;
+}
+.color:nth-child( 0n+2 ) {
+  background-color: red;
+}
+.color:nth-child( 0n+3 ) {
+  background-color: green;
+}
+.color:nth-child( 0n+4 ) {
+  background-color: blue;
+}
+
+#pixel-board {
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 240px;
+}
+
+.pixel {
+  background-color: white;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 1px  solid black;
+  margin-bottom: -5px;
+}
+
+button {
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 50px;
+  box-shadow: 2px 2px 5px rgb(6, 174, 196);
+  background-color: rgb(26, 10, 138);
+  border: 2px solid rgb(6, 174, 196);
+  color: white;
+}
+
+button:active {
+  background-color: rgba(26, 10, 138, 0.7);
+}
+
+.selected {
+  box-shadow: 0px 0px 5px 5px rgb(0, 225, 255);
+}
